@@ -151,8 +151,7 @@ Inbound Rules:
 ┌──────────────┬──────┬─────────────┬──────────────────────┐
 │ Protocol     │ Port │ Source      │ Description          │
 ├──────────────┼──────┼─────────────┼──────────────────────┤
-│ TCP          │ 5000 │ alb_sg      │ App traffic from ALB │
-│ SSH          │ 2049 │ alb_sg      │ App traffic from ALB │  
+│ TCP          │ 5000 │ alb_sg      │ App traffic from ALB │   
 └──────────────┴──────┴─────────────┴──────────────────────┘
 
 Outbound Rules:
@@ -640,6 +639,7 @@ Deploy identical infrastructure in a second region (e.g., us-east-1 for North Am
 - Email: rahulbaswala73@gmail.com
 - LinkedIn: [your-profile](https://linkedin.com/in/your-profile)
 - GitHub: [Wolfking92](https://github.com/your-username)
+
 
 
 
