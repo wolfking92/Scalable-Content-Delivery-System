@@ -1,4 +1,5 @@
-﻿# Content Delivery with Auto Scaling Web Application on AWS
+﻿# Scalable-Content-Delivery-System
+Platform where users can upload large media files and consume them smoothly across devices. Handle growing user traffic and storage needs without performance degradation or excessive costs
 
 A complete implementation of a Content Delivery which is highly available, auto-scaling web application infrastructure on AWS. This project demonstrates enterprise-level architecture with automatic scaling, load balancing, shared storage, and multi-tier security design.
 
@@ -641,6 +642,7 @@ Deploy identical infrastructure in a second region (e.g., us-east-1 for North Am
 - Email: rahulbaswala73@gmail.com
 - LinkedIn: [your-profile](https://linkedin.com/in/your-profile)
 - GitHub: [Wolfking92](https://github.com/your-username)
+
 
 
 
