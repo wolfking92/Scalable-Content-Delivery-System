@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lumina Pro | Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-body">
+    <div class="auth-card">
+        <h1 style="color:#8c52ff; text-align:center; margin:0;">Join Lumina</h1>
+        <p style="color:#666; text-align:center; margin-bottom:30px;">Create your account</p>
+        <form action="{{ url_for('signup') }}" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn" style="width:100%;">Create Account</button>
+        </form>
+        <p style="text-align:center; margin-top:20px; font-size:0.9rem; color:#888;">
+            Have an account? <a href="/login" style="color:#8c52ff; text-decoration:none;">Login</a>
+        </p>
+    </div>
+</body>
+</html>

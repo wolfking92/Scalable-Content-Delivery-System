@@ -1,1 +1,55 @@
+<link rel="stylesheet" href="/static/css/style.css">
+<div class="sidebar">
+    <div class="sidebar-top">
+        <h1 style="color:#8c52ff">Admin</h1>
+        <a href="#" class="nav-item active">Management</a>
+    </div>
+    <a href="/logout" class="logout-btn">Logout Account</a>
+</div>
+<div class="main">
+    <h1>System Overview</h1>
+    
+    <div class="card" style="margin-bottom: 25px; border: 1px solid {{ '#ff5f5f' if is_stressing else '#282828' }};">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h3>Server Load Control</h3>
+                <p style="color: #888;">Current Status: <strong style="color: {{ '#ff5f5f' if is_stressing else '#00ff88' }}">{{ '100% LOAD ACTIVE' if is_stressing else 'NORMAL' }}</strong></p>
+            </div>
+            {% if not is_stressing %}
+                <a href="/admin/stress/start" class="btn" style="background: #ff5f5f;">Start CPU Load</a>
+            {% else %}
+                <a href="/admin/stress/stop" class="btn" style="background: #00ff88; color: #000;">Stop CPU Load</a>
+            {% endif %}
+        </div>
+    </div>
 
+    <div class="dashboard-grid">
+        <div class="card">
+            <h3>Add Teacher</h3>
+            <form method="POST" action="/admin/create_teacher">
+                <input name="email" placeholder="Email" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button class="btn">Register</button>
+            </form>
+        </div>
+        <div class="card">
+            <h3>Students Enrolled</h3>
+            <p style="font-size:3rem; color:#8c52ff; margin:0;">{{ student_count }}</p>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:30px;">
+        <h3>User Directory</h3>
+        <table style="width:100%; text-align:left;">
+            <tr><th>Email</th><th>Role</th><th>Status</th><th>Action</th></tr>
+            {% for u in users %}
+            <tr>
+                <td>{{ u.email }}</td>
+                <td>{{ u.role }}</td>
+                <td style="color: {{ '#ff5f5f' if u.is_blocked else '#00ff88' }}">{{ 'Blocked' if u.is_blocked else 'Active' }}</td>
+                <td><a href="/admin/block/{{ u.id }}"><button class="btn" style="padding:5px 10px;">Toggle</button></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>

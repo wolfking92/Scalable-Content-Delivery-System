@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/static/css/style.css">
+<div class="sidebar">
+    <div class="sidebar-top">
+        <h1 style="color:#8c52ff">Lumina</h1>
+        <a href="#" class="nav-item active">My Library</a>
+    </div>
+    <a href="/logout" class="logout-btn">Logout Account</a>
+</div>
+<div class="main">
+    <h1>Available Courses</h1>
+    <div class="dashboard-grid">
+        {% for c in courses %}
+        <div class="card">
+            <h3>{{ c.title }}</h3>
+            <p style="color:#777;">Instructor: {{ c.instructor_email }}</p>
+            <a href="/course/{{ c.id }}"><button class="btn" style="width:100%">Enter Course</button></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

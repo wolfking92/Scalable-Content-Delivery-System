@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/static/css/style.css">
+<div class="sidebar">
+    <div class="sidebar-top">
+        <h1 style="color:#00d2ff">Teacher</h1>
+        <a href="#" class="nav-item active">My Content</a>
+    </div>
+    <a href="/logout" class="logout-btn">Logout Account</a>
+</div>
+<div class="main">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h1>Instructor Panel</h1>
+        <div class="card" style="padding:15px;">
+            <form action="/create_course" method="POST" style="display:flex; gap:10px; margin:0;">
+                <input type="text" name="title" placeholder="New Course Title" required style="margin:0;">
+                <button type="submit" class="btn" style="background:#00d2ff; color:#000">Create</button>
+            </form>
+        </div>
+    </div>
+    <div class="dashboard-grid" style="margin-top:30px;">
+        {% for c in courses %}
+        <a href="/teacher/course/{{ c.id }}" class="card" style="text-decoration:none;">
+            <h2>{{ c.title }}</h2>
+            <p>{{ c.videos|length }} Lessons</p>
+            <span style="color:#00d2ff">Manage Content →</span>
+        </a>
+        {% endfor %}
+    </div>
+</div>

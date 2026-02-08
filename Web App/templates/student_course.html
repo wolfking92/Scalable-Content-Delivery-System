@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/static/css/style.css">
+<div class="sidebar">
+    <div class="sidebar-top">
+        <a href="/dashboard" class="nav-item">← Back to Library</a>
+        <h3 style="margin:20px 0 10px 15px; font-size:0.8rem; color:#555;">COURSE CONTENT</h3>
+        {% for v in course.videos %}
+        <a href="#" onclick="loadVideo('{{ v.url }}', '{{ v.title }}')" class="nav-item">{{ loop.index }}. {{ v.title }}</a>
+        {% endfor %}
+    </div>
+    <a href="/logout" class="logout-btn">Logout Account</a>
+</div>
+<div class="main">
+    <h1 id="v-title">Select a lesson</h1>
+    <div style="background:#000; border-radius:15px; overflow:hidden; border: 1px solid #333; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+        <video id="player" controls style="width:100%; aspect-ratio: 16/9;"></video>
+    </div>
+</div>
+<script>
+    function loadVideo(url, title) {
+        const p = document.getElementById('player');
+        p.src = url; p.play();
+        document.getElementById('v-title').innerText = title;
+    }
+    {% if course.videos %}
+    window.onload = function() { loadVideo("{{ course.videos[0].url }}", "{{ course.videos[0].title }}"); }
+    {% endif %}
+</script>
